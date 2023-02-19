@@ -32,6 +32,8 @@ try :
      else :
           back_from_function =   get_fruityvice_data(fruit_choice)
           streamlit.dataframe(back_from_function)
+           streamlit.write('The user entered ', fruit_choice)
+           streamlit.write('Thanks for adding',fruit_choice)
           
                                                     
       
@@ -47,10 +49,6 @@ def get_fruit_load_list():
                       return my_cur.fetchall()
 #add a button to load fruit
 
-           
-fruit_choice = streamlit.text_input('What fruit would you like to add','Kiwi')
-streamlit.write('The user entered ', fruit_choice)
-streamlit.write('Thanks for adding',fruit_choice)
 
 if streamlit.buttion('Get Fruit Load List'):
            my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
